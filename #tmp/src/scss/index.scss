@@ -1,0 +1,16 @@
+@import 'scss-parts/second';
+
+
+*{
+  box-sizing: border-box;
+}
+
+.container{
+  max-width: 1440px;
+}
+h1{
+  display: block;
+  height: 100px;
+  width: 100px;
+  background-color: aqua;
+}
