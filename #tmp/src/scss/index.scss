@@ -1,16 +1,39 @@
-@import 'scss-parts/second';
-
-
 *{
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
+  list-style: none;
+  font-family: 'Roboto', sans-serif;
 }
+
+@import '_variables';
+
+@import 'scss-parts/navbar';
+@import 'scss-parts/box';
+
+
 
 .container{
-  max-width: 1440px;
+  padding: 70px 20px 20px;
+  max-width: 980px;
+  margin: 0 auto;
 }
+
 h1{
-  display: block;
-  height: 100px;
-  width: 100px;
-  background-color: aqua;
+  color: $title-color;
+  font-size: 3em;
+  padding-bottom: 10px;
+  border-bottom: $double-border;
+}
+
+h2{
+  color: $title-color;
+  margin-bottom: 10px;
+  @media(max-width: 525px){
+    text-align: center;
+}
+}
+
+.hidden{
+  display: none;
 }

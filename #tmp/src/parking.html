@@ -1,14 +1,9 @@
 @@include('html-parts/header.html', {
   "title": "Home page title"
 })
-@@include('html-parts/navbar.html')
-  <h1>Parking</h1>
+@@include('html-parts/navbar.html')  
   <div class="container">
-    <div class="box">
-      <h2 class="box__title">Cars in the parking lot</h2>
-      <div class="box__items">
-        @@include('html-parts/item.html') 
-      </div>
-    </div>
+    <h1>Parking</h1>
+    @@include('html-parts/box.html')     
   </div>
 @@include('html-parts/footer.html')
