@@ -5,53 +5,9 @@
     <li><a href="#">Garage</a></li>
   </ul>
 </nav>
-
-<div class="create">
-  <form>
-  <h2 class="create__title">Create new car</h2>
-    <label for="car_name">Car name</label>
-    <input type="text" id="car_name">
-
-    <label for="car_type">car type</label>
-    <select id="car_type">
-      <option value="coupe">coupe</option>
-      <option value="expedition_suv">expedition suv</option>
-      <option value="minibus">minibus</option>
-      <option value="offroad">offroad</option>
-      <option value="pickup">pickup</option>
-      <option value="sedan">sedan</option>
-      <option value="station_wagon">station wagon</option>
-      <option value="truck">truck</option>
-    </select>
-
-    <h3>Drive type</h3>
-    <label for="allw"><input type="radio" name="drive" id="allw" value="">all wheel drive</label>    
-    <label for="fw"><input type="radio" name="drive" id="fw" value="">front-wheel drive</label>    
-    <label for="rw"><input type="radio" name="drive" id="rw" value="">rear drive</label> 
-
-    <h3>Fuel type</h3>
-    <label for="petrol"><input type="radio" name="fuel" id="petrol" value="">petrol</label>    
-    <label for="diesel"><input type="radio" name="fuel" id="diesel" value="">diesel</label>    
-    <label for="electricity"><input type="radio" name="fuel" id="electricity" value="">electricity</label>    
-
-    <label for="volume">engine volume</label>
-    <select id="volume">
-      <option value="1.9l">1.9l</option>
-      <option value="2.0l">2.0l</option>
-      <option value="2.5l">2.5l</option>
-      <option value="3.0l">3.0l</option>
-      <option value="4.0l">4.0l</option>
-      <option value="5.0l">5.0l</option>
-      <option value="6.0l">6.0l</option>
-    </select>
-
-    <label for="color">Color</label>
-    <input type="text">
-
-    <button type="submit">To parking lot</button>
-  </form>
-  <div class="create__close-btn">&#10005</div>
-</div>
+<!-- k -->
+@@include('create-menu.html')
+<!-- k -->
 <div class="bg_cover hidden"></div>
 
 <div class="inquiry"><span class="inquiry__content">I</span></div>

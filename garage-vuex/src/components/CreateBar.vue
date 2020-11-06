@@ -18,26 +18,54 @@
       </select>
 
       <h3>Drive type</h3>
-      <label for="allw"
-        ><input type="radio" name="drive" id="allw" value="allw" v-model="drive"/>all wheel
-        drive</label
+      <label class="create__radio" for="allw"
+        ><input
+          type="radio"
+          name="drive"
+          id="allw"
+          value="allw"
+          v-model="drive"
+        />all wheel drive</label
       >
-      <label for="fw"
-        ><input type="radio" name="drive" id="fw" value="fw" v-model="drive"/>front-wheel
-        drive</label
+      <label class="create__radio" for="fw"
+        ><input
+          type="radio"
+          name="drive"
+          id="fw"
+          value="fw"
+          v-model="drive"
+        />front-wheel drive</label
       >
-      <label for="rw"
-        ><input type="radio" name="drive" id="rw" value="rw" v-model="drive"/>rear drive</label
+      <label class="create__radio" for="rw"
+        ><input
+          type="radio"
+          name="drive"
+          id="rw"
+          value="rw"
+          v-model="drive"
+        />rear drive</label
       >
 
       <h3>Fuel type</h3>
-      <label for="petrol"
-        ><input type="radio" name="fuel" id="petrol" value="petrol" v-model="fuel"/>petrol</label
+      <label class="create__radio" for="petrol"
+        ><input
+          type="radio"
+          name="fuel"
+          id="petrol"
+          value="petrol"
+          v-model="fuel"
+        />petrol</label
       >
-      <label for="diesel"
-        ><input type="radio" name="fuel" id="diesel" value="diesel" v-model="fuel"/>diesel</label
+      <label class="create__radio" for="diesel"
+        ><input
+          type="radio"
+          name="fuel"
+          id="diesel"
+          value="diesel"
+          v-model="fuel"
+        />diesel</label
       >
-      <label for="electricity"
+      <label class="create__radio" for="electricity"
         ><input
           type="radio"
           name="fuel"
@@ -49,11 +77,17 @@
 
       <label for="volume">engine volume</label>
       <select id="volume" v-model="engine">
-       <option :value="option.value" v-for="option in engineOptions" :key="option.value">{{option.text}}</option>
+        <option
+          :value="option.value"
+          v-for="option in engineOptions"
+          :key="option.value"
+        >
+          {{ option.text }}
+        </option>
       </select>
 
       <label for="color">Color</label>
-      <input type="text" v-model="color"/>
+      <input type="text" v-model="color" />
 
       <button type="submit">To parking lot</button>
     </form>
@@ -64,7 +98,19 @@
         createBar();
       "
     >
-      &times;
+      <svg
+        viewBox="0 0 15 15"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        width="30"
+        height="30"
+      >
+        <path
+          d="M10 14L3 7.5 10 1"
+          stroke="currentColor"
+          stroke-linecap="square"
+        ></path>
+      </svg>
     </div>
   </div>
 </template>
@@ -81,16 +127,16 @@ export default {
       drive: "fw",
       fuel: "petrol",
       engine: "3.0l",
-      color: ""
+      color: "",
     };
   },
   computed: {
-    ...mapGetters(['getEngineOptions']),
+    ...mapGetters(["getEngineOptions"]),
     engineOptions() {
-      if(this.fuel !== "electricity") {
-        return this.getEngineOptions
+      if (this.fuel !== "electricity") {
+        return this.getEngineOptions;
       }
-    }
+    },
   },
   methods: {
     ...mapActions(["backGround", "createBar", "car2Parking"]),
@@ -104,13 +150,13 @@ export default {
           fuel: this.fuel,
           engine: this.engine,
           color: this.color,
-          atParking: true
+          atParking: true,
         };
-        
+
         this.car2Parking(car);
         this.name = "";
         this.color = "";
-        this.engine = null
+        this.engine = null;
       }
     },
   },

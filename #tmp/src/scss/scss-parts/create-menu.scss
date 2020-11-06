@@ -1,0 +1,98 @@
+.create{
+    z-index: 3;
+    position: fixed;
+    width: 60%;
+    height: 100vh;
+    overflow-y: auto;
+    background-color: #ccccccc8;
+    border-top-right-radius: $border-radius;
+    border-bottom-right-radius: $border-radius 30px;
+    transition: all .5s;
+
+    @media(max-width: 970px){
+        width: 65%;
+    }
+    @media(max-width: 910px){
+        width: 70%;
+    }
+    @media(max-width: 840px){
+        width: 75%;
+    }
+    @media(max-width: 785px){
+        width: 80%;
+    }
+    @media(max-width: 740px){
+        width: 100%;
+    }
+
+    &__title,h3{
+        text-align: center;
+        color: $title-color;
+    }
+
+    form{
+        background-color: #ccc;
+        width: 500px;
+        padding: 5px 20px 5px;
+        height: 500px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        overflow-y: auto;
+        border-radius: 40px $border-radius;
+
+        @media(max-width: 595px){
+            width: 100%;
+        }
+    }
+    input,select{
+        padding: 5px;
+        border-radius: 5px;
+        margin-bottom: 5px;
+    }
+    select{
+        display: inline-block;
+        width: 120px;
+        margin-left: auto;
+    }
+
+   [for=car_type],[for=volume]{
+       text-align: right;
+   }
+
+   [type=radio]{
+       margin-right: 5px;       
+   }  
+   
+   &__radio{
+       width: fit-content;
+   }
+
+   button{      
+       cursor: pointer;
+       padding: 5px;
+       width: 200px;
+       margin: 0 auto;
+   }
+     
+   &__close-btn{
+       display: flex;
+       align-items: center;
+       justify-content: center;
+       position: absolute;
+       width: 25px;
+       height: 90px;
+       background-color: #fff;
+       top: 200px;
+       right: 15px;
+       cursor: pointer;
+       color: $title-color;
+       border-radius: 15px 5px;
+       box-shadow: 5px 5px 5px 0px #000000c8;
+       transition: all .1s;
+       
+       &:active{
+           box-shadow: none;
+       }
+   }
+}
