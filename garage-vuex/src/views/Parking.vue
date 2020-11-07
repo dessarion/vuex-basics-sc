@@ -14,11 +14,14 @@
         <p>There no cars at parking.</p>
       </div>
     </div>
+    <Generator />
   </div>
 </template>
 
 <script>
 import Car from "@/components/Car";
+import Generator from "@/components/Generator";
+
 import {mapGetters} from 'vuex'
 
 export default {
@@ -28,6 +31,7 @@ export default {
   },
   components: {
       Car,
+      Generator
   },
 };
 </script>

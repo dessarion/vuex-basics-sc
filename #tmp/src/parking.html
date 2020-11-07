@@ -4,6 +4,15 @@
 @@include('html-parts/navbar.html')  
   <div class="container">
     <h1>Parking</h1>
-    @@include('html-parts/box.html')     
+    @@include('html-parts/box.html') 
+    <div class="parking__generator">
+      <div class="parking__generator-input">
+        <h4>10 cars</h4>
+        <input type="range">
+      </div>
+      <div class="parking__generator-btn">
+        <span>generate</span>
+      </div>      
+    </div>    
   </div>
 @@include('html-parts/footer.html')

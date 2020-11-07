@@ -14,10 +14,27 @@ export default new Vuex.Store({
       { text: "3.0l", value: "3.0l" },
       { text: "4.0l", value: "4.0l" },
       { text: "5.0l", value: "5.0l" },
-      { text: "6.0", value: "6.0l" }
+      { text: "6.0l", value: "6.0l" }
+    ],
+    carTypes: [
+      { text: "coupe", value: "coupe" },
+      { text: "expedition suv", value: "expedition_suv" },
+      { text: "minibus", value: "minibus" },
+      { text: "offroad", value: "offroad" },
+      { text: "pickup", value: "pickup" },
+      { text: "sedan", value: "sedan" },
+      { text: "station wagon", value: "station_wagon" },
+      { text: "truck", value: "truck" },
     ],
     parking: [],
     garage: [],
+    carNames: ['Tazik','Vazik','Gazik','Tank','Probe','Tata','Bongo','Toppo',
+      'Celerio','Kancil','Ideal','Esteem','Fuga','Tivoli','Edsel','Ram','Vellfire',
+      'Landscape F1','Song Max','Hummer','DAYZ ROOX','Pantanal','Silkroad','Xcient',
+      'Turbo'],
+    carColors: ['Absolute Zero', 'Acid green', 'Amethyst','Antique brass','Antique ruby',
+      'Baby powder','Beau blue','Black olive','Blush','Canary yellow','China pink',
+      'Dark cyan','Desert','Fuchsia purple','French lilac','Gold','Green','True blue']  
   },
   mutations: {
     bg(state) {
@@ -74,6 +91,22 @@ export default new Vuex.Store({
     },
     getGarage(state) {
       return state.garage
+    },
+    getCarNames(state) {
+      return state.carNames
+    },
+    getCarTypes(state) {
+      const types = []
+      state.carTypes.forEach(c => types.push(c.value))
+      return types
+    },
+    getEngines(state) {
+      const engines = []
+      state.engineOptions.forEach( e => engines.push(e.value))
+      return engines
+    },
+    getCarColors(state) {
+      return state.carColors
     }
   },
 })

@@ -7,17 +7,17 @@
 
       <label for="car_type">car type</label>
       <select id="car_type" v-model="carType">
-        <option value="coupe">coupe</option>
-        <option value="expedition_suv">expedition suv</option>
-        <option value="minibus">minibus</option>
-        <option value="offroad">offroad</option>
-        <option value="pickup">pickup</option>
-        <option value="sedan">sedan</option>
-        <option value="station_wagon">station wagon</option>
-        <option value="truck">truck</option>
+        <option
+          :value="option.value"
+          v-for="option in $store.state.carTypes"
+          :key="option.value"
+        >
+          {{ option.text }}
+        </option>
       </select>
 
       <h3>Drive type</h3>
+      
       <label class="create__radio" for="allw"
         ><input
           type="radio"
@@ -47,6 +47,7 @@
       >
 
       <h3>Fuel type</h3>
+
       <label class="create__radio" for="petrol"
         ><input
           type="radio"
@@ -100,8 +101,7 @@
     >
       <svg
         viewBox="0 0 15 15"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
+        fill="none"        
         width="30"
         height="30"
       >
