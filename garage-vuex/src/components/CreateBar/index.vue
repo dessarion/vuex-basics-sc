@@ -46,46 +46,9 @@
         />rear drive</label
       >
 
-      <h3>Fuel type</h3>
-
-      <label class="create__radio" for="petrol"
-        ><input
-          type="radio"
-          name="fuel"
-          id="petrol"
-          value="petrol"
-          v-model="fuel"
-        />petrol</label
-      >
-      <label class="create__radio" for="diesel"
-        ><input
-          type="radio"
-          name="fuel"
-          id="diesel"
-          value="diesel"
-          v-model="fuel"
-        />diesel</label
-      >
-      <label class="create__radio" for="electricity"
-        ><input
-          type="radio"
-          name="fuel"
-          id="electricity"
-          value="electricity"
-          v-model="fuel"
-        />electricity</label
-      >
-
-      <label for="volume">engine volume</label>
-      <select id="volume" v-model="engine">
-        <option
-          :value="option.value"
-          v-for="option in engineOptions"
-          :key="option.value"
-        >
-          {{ option.text }}
-        </option>
-      </select>
+      <!-- * -->
+      <FuelType />      
+      <!-- * -->
 
       <label for="color">Color</label>
       <input type="text" v-model="color" />
@@ -117,6 +80,7 @@
 
 <script>
 import { mapActions, mapGetters } from "vuex";
+import FuelType from '@/components/CreateBar/fuel-type'
 
 export default {
   name: "create-bar",
@@ -125,30 +89,32 @@ export default {
       name: "",
       carType: "expedition_suv",
       drive: "fw",
-      fuel: "petrol",
-      engine: "3.0l",
+      // fuel: "petrol",
+      // engine: "3.0l",
       color: "",
     };
-  },
+  },  
   computed: {
-    ...mapGetters(["getEngineOptions"]),
-    engineOptions() {
-      if (this.fuel !== "electricity") {
-        return this.getEngineOptions;
-      }
-    },
+    ...mapGetters(["getCarOptions"]),
+    // engineOptions() {
+    //   if (this.fuel !== "electricity") {
+    //     return this.getEngineOptions;
+    //   }
+    // },
   },
   methods: {
     ...mapActions(["backGround", "createBar", "car2Parking"]),
     carToParking() {
       if (this.name.trim()) {
+        const carOptions = this.getCarOptions
+
         const car = {
           id: Date.now(),
           name: this.name,
           carType: this.carType,
           drive: this.drive,
-          fuel: this.fuel,
-          engine: this.engine,
+          fuel: carOptions.fuel,
+          engine: carOptions.engine +  'l',
           color: this.color,
           atParking: true,
         };
@@ -159,6 +125,9 @@ export default {
         this.engine = null;
       }
     },
+  },
+  components: {
+    FuelType,
   },
 };
 </script>

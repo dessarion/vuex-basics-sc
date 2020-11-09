@@ -17,10 +17,12 @@ export default {
     return {
       carsToGenerate: "3",
       maxCars: 10,
+      maxVolume: 6
     };
   },
   computed: {
-    ...mapGetters(["getCarNames", "getCarTypes", "getEngines", "getCarColors"]),
+    ...mapGetters(["getCarNames", "getCarTypes", "getCarColors",
+      "getFuelTypes"]),
   },
   methods: {
     ...mapActions(['car2Parking']),
@@ -28,16 +30,18 @@ export default {
       const names = this.getCarNames;
       const types = this.getCarTypes;
       const drive = ["allw", "fw", "rw"];
-      const fuel = ["petrol", "diesel", "electricity"];
-      const engines = this.getEngines;
+      const fuel = this.getFuelTypes;
+
+      const e = (getRandomNumber(60) / 10)
+      const engine = e > 1.2 ? e : 1.2
       const colors = this.getCarColors;
 
       const idxN = getRandomNumber(names.length);
-      const idxT = getRandomNumber(types.length);
-      const idxE = getRandomNumber(engines.length);
+      const idxT = getRandomNumber(types.length);      
       const idxC = getRandomNumber(colors.length);
+      const idxF = getRandomNumber(fuel.length)
 
-      const getFuel = fuel[getRandomNumber(fuel.length)];
+      const getFuel = fuel[idxF]
 
       function getRandomNumber(to) {
         const digts = Math.floor(Math.random() * to);
@@ -50,7 +54,11 @@ export default {
         carType: types[idxT],
         drive: drive[getRandomNumber(drive.length)],
         fuel: getFuel,
-        engine: getFuel !== "electricity" ? engines[idxE] : null,
+        engine: getFuel !== "electricity" 
+          ? engine % 1
+            ? engine + "l"
+            : engine + ".0l"
+          : null,
         color: colors[idxC],
         atParking: true,
       };

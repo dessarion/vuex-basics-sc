@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import Vuex from 'vuex'
+import Vuex, { Store } from 'vuex'
 
 Vue.use(Vuex)
 
@@ -7,15 +7,16 @@ export default new Vuex.Store({
   state: {
     bgHidden: true,
     createBarHidden: true,
-    engineOptions: [
-      { text: "1.9l", value: "1.9l" },
-      { text: "2.0l", value: "2.0l" },
-      { text: "2.5l", value: "2.5l" },
-      { text: "3.0l", value: "3.0l" },
-      { text: "4.0l", value: "4.0l" },
-      { text: "5.0l", value: "5.0l" },
-      { text: "6.0l", value: "6.0l" }
-    ],
+    // engineOptions: [
+    //   { text: "1.9l", value: "1.9l" },
+    //   { text: "2.0l", value: "2.0l" },
+    //   { text: "2.5l", value: "2.5l" },
+    //   { text: "3.0l", value: "3.0l" },
+    //   { text: "4.0l", value: "4.0l" },
+    //   { text: "5.0l", value: "5.0l" },
+    //   { text: "6.0l", value: "6.0l" }
+    // ],
+    fuelTypes: ['petrol','diesel','electricity'],
     carTypes: [
       { text: "coupe", value: "coupe" },
       { text: "expedition suv", value: "expedition_suv" },
@@ -26,6 +27,7 @@ export default new Vuex.Store({
       { text: "station wagon", value: "station_wagon" },
       { text: "truck", value: "truck" },
     ],
+    car: {},    
     parking: [],
     garage: [],
     carNames: ['Tazik','Vazik','Gazik','Tank','Probe','Tata','Bongo','Toppo',
@@ -59,7 +61,13 @@ export default new Vuex.Store({
     deleteCar(state, id) {
       state.garage = state.garage.filter(c => c.id !== id)
       localStorage.setItem('garage', JSON.stringify(state.garage))
-    }
+    },
+    setFuel(state, fuel) {
+      state.car.fuel = fuel
+    },
+    setEngine(state, engine) {
+      state.car.engine = engine
+    }   
   },
   actions: {
     backGround({ commit }) {
@@ -80,15 +88,15 @@ export default new Vuex.Store({
     },
     wanishCar({commit}, id) {
       commit('deleteCar', id)
-    }
+    },   
   },
   getters: {
     getParking(state) {
       return state.parking
     },
-    getEngineOptions(state) {
-      return state.engineOptions
-    },
+    // getEngineOptions(state) {
+    //   return state.engineOptions
+    // },
     getGarage(state) {
       return state.garage
     },
@@ -100,13 +108,19 @@ export default new Vuex.Store({
       state.carTypes.forEach(c => types.push(c.value))
       return types
     },
-    getEngines(state) {
-      const engines = []
-      state.engineOptions.forEach( e => engines.push(e.value))
-      return engines
-    },
+    // getEngines(state) {
+    //   const engines = []
+    //   state.engineOptions.forEach( e => engines.push(e.value))
+    //   return engines
+    // },
     getCarColors(state) {
       return state.carColors
+    },
+    getFuelTypes(state) {
+      return state.fuelTypes
+    },
+    getCarOptions(state) {
+      return state.car
     }
   },
 })

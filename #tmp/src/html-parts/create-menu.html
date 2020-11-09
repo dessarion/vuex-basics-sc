@@ -1,4 +1,4 @@
-<div class="create toleft">
+<div class="create">
     <form>
         <h2 class="create__title">Create new car</h2>
         <label for="car_name">Car name</label>
@@ -17,25 +17,27 @@
         </select>
 
         <h3>Drive type</h3>
-        <label class="create__radio" for="allw"><input type="radio" name="drive" id="allw" value="">all wheel drive</label>
-        <label class="create__radio" for="fw"><input type="radio" name="drive" id="fw" value="">front-wheel drive</label>
+        <label class="create__radio" for="allw"><input type="radio" name="drive" id="allw" value="">all wheel
+            drive</label>
+        <label class="create__radio" for="fw"><input type="radio" name="drive" id="fw" value="">front-wheel
+            drive</label>
         <label class="create__radio" for="rw"><input type="radio" name="drive" id="rw" value="">rear drive</label>
 
-        <h3>Fuel type</h3>
-        <label class="create__radio" for="petrol"><input type="radio" name="fuel" id="petrol" value="">petrol</label>
-        <label class="create__radio" for="diesel"><input type="radio" name="fuel" id="diesel" value="">diesel</label>
-        <label class="create__radio" for="electricity"><input type="radio" name="fuel" id="electricity" value="">electricity</label>
-
-        <label for="volume">engine volume</label>
-        <select id="volume">
-            <option value="1.9l">1.9l</option>
-            <option value="2.0l">2.0l</option>
-            <option value="2.5l">2.5l</option>
-            <option value="3.0l">3.0l</option>
-            <option value="4.0l">4.0l</option>
-            <option value="5.0l">5.0l</option>
-            <option value="6.0l">6.0l</option> 
-        </select>
+        <div class="create__fuelTypeBlock">            
+            <div class="create__fuelTypeRadio">
+                <h3>Fuel type</h3>
+                <label class="create__radio" for="petrol"><input type="radio" name="fuel" id="petrol"
+                        value="">petrol</label>
+                <label class="create__radio" for="diesel"><input type="radio" name="fuel" id="diesel"
+                        value="">diesel</label>
+                <label class="create__radio" for="electricity"><input type="radio" name="fuel" id="electricity"
+                        value="">electricity</label>
+            </div>
+            <div class="create__fuelTypeRange">
+                <label for="volume">engine volume <span>4.1l</span></label>
+                <input type="range" id="volume" max="6" min="1.5" step="0.1">
+            </div>
+        </div>
 
         <label for="color">Color</label>
         <input type="text">

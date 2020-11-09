@@ -68,6 +68,28 @@
        width: fit-content;
    }
 
+   &__fuelTypeBlock{
+       position: relative; 
+       margin-bottom: 20px;     
+   }
+   &__fuelTypeRadio{
+       display: flex;
+       flex-direction: column;
+   }
+   &__fuelTypeRange{
+       font-weight: 300;
+       display: flex;
+       flex-direction: column;
+       position: absolute;
+       top: 35px;
+       right: 35px;       
+       span{
+           font-weight: 500;
+           margin-left: 10px;
+           color: #fff;
+       }
+   }
+
    button{      
        cursor: pointer;
        padding: 5px;
